@@ -14,6 +14,9 @@ export interface State {
 
     watchLater: Post[];
     addToWatchLater: (post: Post) => void;
+
+    isOnVideoPage: boolean;
+    setIsOnVideoPage: (isOnVideoPage: boolean) => void;
 }
 
 export const AppStateContext = createContext({} as State);
@@ -27,6 +30,7 @@ export function AppStateProvider({ children }: AppStateProviderProps) {
     const [darkMode, setDarkMode] = useState(false);
     const [watchLater, setWatchLater] = useState<Post[]>([]);
     const [enableResume, setEnableResume] = useState(true);
+    const [isOnVideoPage, setIsOnVideoPage] = useState(false);
 
 
     useEffect(() => {
@@ -79,10 +83,13 @@ export function AppStateProvider({ children }: AppStateProviderProps) {
                     });
                 });
             },
+
+            isOnVideoPage,
+            setIsOnVideoPage,
         };
 
         return returnValue;
-    }, [contextMenuOpen, darkMode, watchLater, enableResume]);
+    }, [contextMenuOpen, darkMode, watchLater, enableResume, isOnVideoPage]);
 
     return (
         <AppStateContext.Provider value={providerValue}>

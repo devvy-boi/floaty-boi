@@ -10,10 +10,10 @@ import { AppStateContext } from './providers/use-app-state';
 export default function App(){
     const [url, setURL] = useState('');
     const [postId, setPostId] = useState('');
-    const [isOnVideoPage, setIsOnVideoPage] = useState(false);
     const { 
         contextMenuOpen, setContextMenuOpen,
         darkMode,
+        isOnVideoPage, setIsOnVideoPage,
     } = useContext(AppStateContext);
 
     useEffect(() => {

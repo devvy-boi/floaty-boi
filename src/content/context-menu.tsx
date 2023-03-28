@@ -10,6 +10,7 @@ export default function ContextMenu(){
     const { 
         darkMode, setDarkMode,
         watchLater, addToWatchLater,
+        isOnVideoPage
     } = useContext(AppStateContext);
 
     const saveForLater = () => {
@@ -40,18 +41,31 @@ export default function ContextMenu(){
             <button onClick={()=>setDarkMode(!darkMode)}>
                 Turn {darkMode ? 'Off' : 'On'} Dark Mode
             </button>
-            <button onClick={saveForLater}>
-                Add to Watch Later
-            </button>
+            
+            {
+                isOnVideoPage && (
+                    <button onClick={saveForLater}>
+                        Add to Watch Later
+                    </button>
+                )
+            }
+            
 
+            {
+                watchLater.length === 0 ? 
+                    <h3>Watchlist is empty</h3> :
+                    <h3>Watchlist</h3>
+
+            }
             <div className={styles.watchLaterContainer}>
                 {
                     watchLater.map((post) => {
                         return (
                             <a className={styles.postTile} href={`/post/${post.id}`} key={post.id}>
                                 <img className={styles.posterBg} src={post.poster} alt={post.title} />
-                                <h5>{clampText(post.title as string, 60)}</h5>
+
                                 <img src={post.poster} className={styles.posterSquare} alt={post.title} />
+                                <h5>{clampText(post.title as string, 50)}</h5>
                             </a>
                         );
                     })
