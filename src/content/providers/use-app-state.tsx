@@ -14,6 +14,7 @@ export interface State {
 
     watchLater: Post[];
     addToWatchLater: (post: Post) => void;
+    removeFromWatchLater: (post: Post) => void;
 
     isOnVideoPage: boolean;
     setIsOnVideoPage: (isOnVideoPage: boolean) => void;
@@ -77,6 +78,14 @@ export function AppStateProvider({ children }: AppStateProviderProps) {
             watchLater,
             addToWatchLater: (post) => {
                 runtime.sendMessage({type: 'addToWatchLater', value: post}).then(() =>{
+                    runtime.sendMessage({type: 'getWatchLater'}).then((value)=>{
+                        console.log('got watch later', value);
+                        setWatchLater(value);
+                    });
+                });
+            },
+            removeFromWatchLater: (post) => {
+                runtime.sendMessage({type: 'removeFromWatchLater', value: post}).then(() =>{
                     runtime.sendMessage({type: 'getWatchLater'}).then((value)=>{
                         console.log('got watch later', value);
                         setWatchLater(value);

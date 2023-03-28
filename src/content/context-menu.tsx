@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import { AppStateContext } from './providers/use-app-state';
 
@@ -9,7 +9,7 @@ import getCurrentPostId from './utils/get-current-post-id';
 export default function ContextMenu(){
     const { 
         darkMode, setDarkMode,
-        watchLater, addToWatchLater,
+        watchLater, addToWatchLater, removeFromWatchLater,
         isOnVideoPage
     } = useContext(AppStateContext);
 
@@ -23,6 +23,12 @@ export default function ContextMenu(){
                 title
             });
         }
+    };
+    
+    const removeWatchlistedVideo = (post: Post, event: React.MouseEvent) => {
+        event.stopPropagation();
+        event.preventDefault();
+        removeFromWatchLater(post);
     };
 
     const clampText = (text: string, length: number) => {
@@ -66,6 +72,10 @@ export default function ContextMenu(){
 
                                 <img src={post.poster} className={styles.posterSquare} alt={post.title} />
                                 <h5>{clampText(post.title as string, 50)}</h5>
+
+                                <div onClick={(event)=> removeWatchlistedVideo(post, event)} className={styles.remove}>
+                                    ×
+                                </div>
                             </a>
                         );
                     })
