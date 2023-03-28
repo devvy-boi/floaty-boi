@@ -1,0 +1,49 @@
+{
+    "name": "floaty-boi",
+    "version": "1.0.0",
+    "description": "A starter for vite-build webextension projects",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "cli": "node cli/cli.mjs",
+        "dev": "node cli/cli.mjs dev",
+        "install:chromium": "./cli/install-latest-chromium.sh",
+        "build": "vite build && vite build -c vite.content.config.ts",
+        "build:zip": "npm run build && web-ext build --artifacts-dir .cache/build/prod/zip --source-dir .cache/build/prod",
+        "build:watch": "concurrently \"vite build --watch\" \"vite build --watch -c vite.content.config.ts\"",
+        "preview": "vite preview",
+        "lint": "eslint --ext .tsx,.ts,.js,.mjs .",
+        "lint:fix": "eslint --ext .tsx,.ts,.js,.mjs . --fix",
+        "type": "tsc --noEmit"
+    },
+    "author": "devvy-boi",
+    "license": "ISC",
+    "devDependencies": {
+        "@rollup/plugin-replace": "^5.0.2",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.11",
+        "@types/webextension-polyfill": "^0.10.0",
+        "@typescript-eslint/eslint-plugin": "^5.50.0",
+        "@typescript-eslint/parser": "^5.54.0",
+        "@vitejs/plugin-react-swc": "^3.2.0",
+        "commander": "^10.0.0",
+        "concurrently": "^7.6.0",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.33.0",
+        "eslint-plugin-react": "^7.32.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "less": "^4.1.3",
+        "rimraf": "^4.1.2",
+        "terser": "^5.16.3",
+        "typescript": "^5.0.2",
+        "vite": "^4.1.4",
+        "wait-on": "^7.0.1",
+        "web-ext": "^7.5.0"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "webextension-polyfill": "^0.10.0"
+    }
+}

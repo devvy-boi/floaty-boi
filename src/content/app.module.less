@@ -1,0 +1,203 @@
+.container {
+    overflow: hidden;
+}
+
+.progress {
+    background: #0489fa;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    height: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    animation: growProgress 1s ease-in-out both;
+}
+
+@keyframes growProgress {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+
+.icon {
+    margin: 10px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+:global {
+    .floaty-dark {
+        --textColor: #fff;
+        --textColorLight: #b3b3b3;
+        --textColorLighter: #919191;
+        --bgColor: #121a23;
+        --bgColorLight: #1e2a37;
+        --bgColorLighter: #2a3b4d;
+        --bgColorTransparent: rgba(18, 26, 35, 0.8);
+        --primaryColor: #0085ff;
+
+        .route-wrapper {
+            background: var(--bgColor) !important;
+        }
+
+        .ReactProfileIntro {
+            .ProfileIntroBarGeneric.fill {
+                background: var(--bgColor) !important;
+            }
+
+            .ReactProfileNavContainer {
+                background: var(--bgColorTransparent) !important;
+            }
+
+            .ProfileNavItem {
+                color: var(--textColorLight) !important;
+
+            }
+
+            .ProfileNavItem.active {
+                background: rgba(255, 255, 255, 0.05);
+                color: var(--textColor);
+            }
+        }
+
+        .ReactElementGridItem {
+
+            .PostTileWrapper {
+                color: var(--textColor) !important;
+            }
+
+            .PostTileTitle {
+                color: var(--textColor) !important;
+            }
+
+            .PostTileAge {
+                color: var(--textColorLight) !important;
+            }
+
+            .duration {
+                color: var(--textColorLight) !important;
+            }
+
+            a {
+                color: var(--textColor) !important;
+            }
+        }
+
+        .markdown-body {
+            color: var(--textColor) !important;
+        }
+
+        .ReactDescriptionHeaderComponent {
+            * {
+                color: var(--textColor) !important;
+            }
+
+            path {
+                fill: var(--textColor) !important;
+            }
+
+            .video-title {
+                color: var(--textColor) !important;
+
+                .title-text {
+                    color: var(--textColor) !important;
+                }
+            }
+
+            .channel-title {
+                color: var(--textColor) !important;
+            }
+        }
+
+        .DescriptionBodyComponent {
+            * {
+                color: var(--textColor) !important;
+            }
+
+            path {
+                fill: var(--textColor) !important;
+            }
+
+            .text-container::after {
+                background: linear-gradient(to top, var(--bgColor) 0%, #fff0 70%);
+            }
+
+            .expand .button:hover {
+                background: var(--bgColorLight);
+            }
+        }
+
+        .ReactCommentComponent {
+            * {
+                color: var(--textColor) !important;
+            }
+
+            path {
+                fill: var(--textColor) !important;
+            }
+
+
+        }
+
+        .ReactRelatedPostList {
+            .title {
+                color: var(--textColor) !important;
+            }
+
+            .PostTileWrapper {
+                * {
+                    color: var(--textColor) !important;
+                }
+            }
+        }
+
+        .CommentReplyInput textarea {
+            &::placeholder {
+                color: var(--textColorLight) !important;
+            }
+
+            background: var(--bgColorLight) !important;
+            color: var(--textColor) !important;
+            border-bottom-color: var(--bgColorLighter) !important;
+        }
+
+
+
+        .CommentReplyInputCharCount {
+            color: var(--textColorLighter) !important;
+        }
+
+
+        .ReactContentButton {
+            color: var(--textColor) !important;
+
+            &.variant-interaction.active {
+                .count {
+                    color: var(--primaryColor) !important;
+                }
+
+                path {
+                    fill: var(--primaryColor) !important;
+                }
+            }
+        }
+    }
+}

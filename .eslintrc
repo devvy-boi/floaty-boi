@@ -1,0 +1,70 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+    ],
+    "ignorePatterns": [
+        "**/.cache/*",
+        "**/node_modules/*",
+        "**/dist/*",
+        "**/coverage/*"
+    ],
+    "overrides": [],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json",
+            "./tsconfig.node.json",
+        ]
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 200
+            }
+        ],
+        "no-restricted-syntax": "off",
+        "semi": [
+            "error",
+            "always"
+        ],
+        "space-before-function-paren": "off",
+        "require-await": "error",
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "import/no-extraneous-dependencies": [
+            "off",
+            {
+                "devDependencies": false,
+                "optionalDependencies": false,
+                "peerDependencies": false
+            }
+        ]
+    }
+}
