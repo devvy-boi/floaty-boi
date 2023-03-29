@@ -9,6 +9,9 @@ Makes your experience on Floatplane better by adding saved video progress, dark 
 ## IMPORTANT
 Not affiliated with Linus Media Group or Floatplane Inc. in any way. **Do NOT contact Floatplane support for issues without trying to disable the extension first.**
 
+![image](https://user-images.githubusercontent.com/129204914/228608718-481c0310-a9d7-4dae-9ba9-320b8e93bc82.png)
+
+
 
 
 ### Config
