@@ -6,6 +6,9 @@ Makes your experience on Floatplane better by adding saved video progress, dark 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L3L8JWKYY)
 
+## IMPORTANT
+Not affiliated with Linus Media Group or Floatplane Inc. in any way. **Do NOT contact Floatplane support for issues without trying to disable the extension first.**
+
 
 
 ### Config
@@ -16,7 +19,7 @@ Makes your experience on Floatplane better by adding saved video progress, dark 
    2. Firefox currently uses `2` and Chrome uses `3`
 
 
-### To run locally with web-ext:
+### To run / debug locally with web-ext:
 
 1. Install packages with `yarn` or `npm install`
 2. Run `yarn cli dev` or `npm run cli -- dev` to build the extension and run it with web-ext
@@ -27,9 +30,6 @@ Makes your experience on Floatplane better by adding saved video progress, dark 
 1. Ensure the correct manifest version is set in `.env`
 2. Run `yarn cli build:zip` to build the extension and create a zip file in the `.cache/zip` folder
 
-
-##IMPORTANT
-Not affiliated with Linus Media Group or Floatplane Inc. in any way. Do NOT contact Floatplane support for issues without trying to disable the extension first.
 
 
 ### Contributing
