@@ -64,6 +64,29 @@ browser.runtime.onMessage.addListener((message) => {
 
     }
 
+    if(message.type === 'removeFromWatchLater'){
+        const value = message.value as Post;
+        
+        // store the postId in the extension local storage
+        browser.storage.local.get('watchLater')
+            .then(({watchLater})=>{
+                let _watchLater = watchLater || [];
+
+                _watchLater = _watchLater.filter((item: Post)=>{
+                    console.log(item);
+                    
+                    return item.id !== value.id;
+                });
+
+                return browser.storage.local.set({
+                    watchLater: _watchLater
+                });
+            })
+            .catch(error=>{
+                console.log(error);
+            });
+    }
+
     if(message.type === 'getWatchLater'){
         // get the watch later list from the extension local storage
         return browser.storage.local.get('watchLater')

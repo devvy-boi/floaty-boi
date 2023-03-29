@@ -79,15 +79,44 @@ program
             .choices(['development', 'dev', 'production', 'prod'])
             .default('development'),
     )
+    .addOption(
+        new Option('-w, --watch', 'Watch for changes')
+            .default(false),
+    )
     .action((options) => {
         const outDir = ['dev', 'development'].includes(options.mode) ? '.cache/build/dev' : '.cache/build/prod';
 
         execSync(`npx rimraf ${outDir}`);
 
-        const buildCommand = `npx concurrently --names "base,content" "npx vite build --mode ${options.mode} --watch" "npx vite build --mode ${options.mode} --watch -c vite.content.config.ts"`;
+        const buildCommand = `npx concurrently --names "base,content" "npx vite build --mode ${options.mode} ${options.watch ? '--watch' : ''}" "npx vite build --mode ${options.mode} --watch -c vite.content.config.ts"`;
         const buildRunner = exec(buildCommand);
 
         streamStdOutput(buildRunner, 'build', 'green');
     });
+
+program
+    .command('build:zip')
+    .addOption(
+        new Option('-m, --mode <string>', 'Production or development mode')
+            .choices(['development', 'dev', 'production', 'prod'])
+            .default('production'),
+    )
+    .action((options) => {
+        const outDir = ['dev', 'development'].includes(options.mode) ? '.cache/build/dev' : '.cache/build/prod';
+
+        execSync(`npx rimraf ${outDir}`);
+
+        const buildCommand = `npx concurrently --names "base,content" "npx vite build --mode ${options.mode} " "npx vite build --mode ${options.mode} --watch -c vite.content.config.ts"`;
+        const buildRunner = exec(buildCommand);
+
+        streamStdOutput(buildRunner, 'build', 'green');
+
+        // build the two configs, then zip with web-ext
+        const zipCommand = `npx wait-on ${outDir}/meta/base ${outDir}/meta/content && npx web-ext build --overwrite-dest --artifacts-dir .cache/build/zip --source-dir=${outDir}`;
+        const zipRunner = exec(zipCommand);
+
+        streamStdOutput(zipRunner, 'zip', 'yellow');
+    });
+
 
 program.parse(process.argv);
