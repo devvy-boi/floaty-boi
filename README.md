@@ -2,6 +2,8 @@
 
 Makes your experience on floatplane.com better.
 
+<img width="100" alt="icon" src="https://user-images.githubusercontent.com/129204914/228607557-a53c01ad-6f3e-41b9-8da8-dea61d1cac8e.png">
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L3L8JWKYY)
 
 ### Config
