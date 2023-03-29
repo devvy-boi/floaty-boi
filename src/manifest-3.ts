@@ -13,7 +13,7 @@ type CustomManifest = Manifest.WebExtensionManifest & {
 const manifest: CustomManifest = {
     manifest_version: 3,
     name: 'Floaty Boi',
-    version: '0.0.1',
+    version: '0.0.2',
     description: 'Unofficial Floatplane quality of life extension',
     background: {
         service_worker: 'src/background/index.js',
@@ -38,6 +38,8 @@ const manifest: CustomManifest = {
         },
     ],
     icons: {
+        48: 'assets/icon.png',
+        96: 'assets/icon.png',
         128: 'assets/icon.png',
     },
     web_accessible_resources: [
@@ -48,7 +50,7 @@ const manifest: CustomManifest = {
                 'src/background/index.js.map',
                 // anything in assets folder is dynamically added here
             ],
-            matches: ['<all_urls>'],
+            matches: ['https://*.floatplane.com/*'],
         },
     ],
 };
