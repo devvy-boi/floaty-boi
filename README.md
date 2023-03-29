@@ -12,7 +12,13 @@ Not affiliated with Linus Media Group or Floatplane Inc. in any way. **Do NOT co
 ![image](https://user-images.githubusercontent.com/129204914/228608718-481c0310-a9d7-4dae-9ba9-320b8e93bc82.png)
 
 
+## Installation
+See our [Releases](https://github.com/devvy-boi/floaty-boi/releases/tag/v0.0.2-alpha) page if you'd like to try out the extension while it's in alpha.
 
+Coming soon to Chrome Web Store and Mozilla Addons...
+
+
+## Development
 
 ### Config
 
