@@ -22,3 +22,8 @@ Makes your experience on floatplane.com better.
 
 1. Ensure the correct manifest version is set in `.env`
 2. Run `yarn cli build:zip` to build the extension and create a zip file in the `.cache/zip` folder
+
+
+### Contributing
+
+While we wait to get things sorted with the relevant webstores, this project will not be accepting contributions or feature requests.
