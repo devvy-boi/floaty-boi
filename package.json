@@ -9,8 +9,6 @@
         "dev": "node cli/cli.mjs dev",
         "build": "vite build && vite build -c vite.content.config.ts",
         "build:zip": "npm run build && web-ext build --artifacts-dir .cache/build/prod/zip --source-dir .cache/build/prod",
-        "build:watch": "concurrently \"vite build --watch\" \"vite build --watch -c vite.content.config.ts\"",
-        "preview": "vite preview",
         "lint": "eslint --ext .tsx,.ts,.js,.mjs .",
         "lint:fix": "eslint --ext .tsx,.ts,.js,.mjs . --fix",
         "type": "tsc --noEmit"
