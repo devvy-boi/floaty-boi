@@ -26,4 +26,4 @@ Makes your experience on floatplane.com better.
 
 ### Contributing
 
-While we wait to get things sorted with the relevant webstores, this project will not be accepting contributions or feature requests.
+While we wait to get things sorted with the relevant webstores, this project will not be accepting contributions or feature requests. This will hopefully change in the near future!
