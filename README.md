@@ -2,6 +2,8 @@
 
 Makes your experience on floatplane.com better.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L3L8JWKYY)
+
 ### Config
 
 1. Run `yarn` or `npm install` to install dependencies
