@@ -1,17 +1,17 @@
 import { Manifest } from 'webextension-polyfill';
 
+import mv3 from './manifest-3';
+
 // manifest v2 version
 const manifest: Manifest.WebExtensionManifest = {
     manifest_version: 2,
-    name: 'Floaty Boi',
-    version: '0.0.1',
-    description: 'Unofficial Floatplane quality of life extension',
+    name: mv3.name,
+    version: mv3.version,
+    description: mv3.description,
     background: {
         page: 'src/background/index.html',
     },
-    permissions: [
-        'storage',
-    ],
+    permissions: mv3.permissions,
     browser_action: {
         default_popup: 'src/action/index.html',
         default_icon: 'assets/icon.png',
@@ -27,9 +27,7 @@ const manifest: Manifest.WebExtensionManifest = {
             run_at: 'document_start',
         },
     ],
-    icons: {
-        128: 'assets/icon.png',
-    },
+    icons: mv3.icons,
     web_accessible_resources: [
         'style.css',
         'content-script.iife.js.map',
