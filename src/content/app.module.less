@@ -1,5 +1,8 @@
 .container {
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
 }
 
 .progress {
@@ -33,9 +36,6 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     cursor: pointer;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
 
     &:hover {
         transform: scale(1.1);
