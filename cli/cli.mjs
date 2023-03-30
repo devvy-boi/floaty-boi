@@ -1,5 +1,6 @@
 import { Command, Option } from 'commander';
 import { exec, execSync } from 'child_process';
+import { rimrafSync } from 'rimraf';
 
 const program = new Command();
 
@@ -57,7 +58,7 @@ program
 
         const browser = options.browser === 'chromium' ? 'chromium' : 'firefox-desktop';
 
-        execSync(`npx rimraf ${outDir}`);
+        rimrafSync(outDir);
 
         const buildCommand = `npx concurrently --names "base,content" "npx vite build --mode ${options.mode} --watch" "npx vite build --mode ${options.mode} --watch -c vite.content.config.ts"`;
         const buildRunner = exec(buildCommand);
@@ -86,7 +87,7 @@ program
     .action((options) => {
         const outDir = ['dev', 'development'].includes(options.mode) ? '.cache/build/dev' : '.cache/build/prod';
 
-        execSync(`npx rimraf ${outDir}`);
+        rimrafSync(outDir);
 
         const buildCommand = `npx concurrently --names "base,content" "npx vite build --mode ${options.mode} ${options.watch ? '--watch' : ''}" "npx vite build --mode ${options.mode} --watch -c vite.content.config.ts"`;
         const buildRunner = exec(buildCommand);
@@ -104,7 +105,7 @@ program
     .action((options) => {
         const outDir = ['dev', 'development'].includes(options.mode) ? '.cache/build/dev' : '.cache/build/prod';
 
-        execSync(`npx rimraf ${outDir}`);
+        rimrafSync(outDir);
 
         const buildCommand = `npx concurrently --names "base,content" "npx vite build --mode ${options.mode} " "npx vite build --mode ${options.mode} --watch -c vite.content.config.ts"`;
         const buildRunner = exec(buildCommand);
