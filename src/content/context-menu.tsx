@@ -6,6 +6,8 @@ import styles from './context-menu.module.less';
 import getPoster from './utils/get-poster';
 import getCurrentPostId from './utils/get-current-post-id';
 
+import { runtime } from 'webextension-polyfill';
+
 export default function ContextMenu(){
     const { 
         darkMode, setDarkMode,

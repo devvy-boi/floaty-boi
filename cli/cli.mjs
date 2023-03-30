@@ -1,5 +1,5 @@
 import { Command, Option } from 'commander';
-import { exec, execSync } from 'child_process';
+import { exec } from 'child_process';
 import { rimrafSync } from 'rimraf';
 
 const program = new Command();
