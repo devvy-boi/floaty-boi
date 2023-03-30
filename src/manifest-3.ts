@@ -13,7 +13,7 @@ type CustomManifest = Manifest.WebExtensionManifest & {
 const manifest: CustomManifest = {
     manifest_version: 3,
     name: 'Floaty Boi',
-    version: '0.0.2',
+    version: '0.0.3',
     description: 'Unofficial Floatplane quality of life extension',
     background: {
         service_worker: 'src/background/index.js',
