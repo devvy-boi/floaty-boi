@@ -26,7 +26,7 @@ export default function App(){
     useEffect(() => {
 
         let lastURL = '';
-        console.log('content script loaded');
+        console.log('Floaty Boi is running');
 
         let timeoutId: NodeJS.Timeout | undefined;
         
@@ -57,8 +57,6 @@ export default function App(){
         if (url === '') {
             return; 
         }
-
-        console.log('url changed', url);
         
         if (url.includes('floatplane.com/post/')) {
             setIsOnVideoPage(true);
@@ -71,27 +69,23 @@ export default function App(){
 
 
     const buttonClickHandler = (event: React.MouseEvent) => {
-        console.log('button clicked', silenceClick);
-        
         if (silenceClick) {
             event.stopPropagation();
             event.preventDefault();
         } else {
             setContextMenuOpen(!contextMenuOpen);
         }
-
-        
     };
 
     const dragHandler = (_, data: DraggableData) => {
-        
-        setSilenceClick(true);  
 
         if (Math.abs(data.deltaX) < 4 && Math.abs(data.deltaY) < 4) {
             clearTimeout(dragTimeoutId);
             dragTimeoutId = setTimeout(() => {
                 setSilenceClick(false);
             }, 500);
+        } else {
+            setSilenceClick(true);
         }
         
     };
@@ -106,6 +100,7 @@ export default function App(){
                 bottom: 0,
             }}
             onDrag={dragHandler}
+            handle={`.${styles.icon}`}
         >
             <div className={styles.container}>
            
