@@ -1,6 +1,18 @@
 import { Command, Option } from 'commander';
 import { exec } from 'child_process';
 import { rimrafSync } from 'rimraf';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+let manifestVersion = process.env.MANIFEST_VERSION;
+
+if (!manifestVersion) {
+    console.error('Missing MANIFEST_VERSION in .env file');
+    process.exit(1);
+}
+
+console.log(`\n\nConfigured manifest version: ${manifestVersion}\n\n`);
 
 const program = new Command();
 
@@ -113,7 +125,7 @@ program
         streamStdOutput(buildRunner, 'build', 'green');
 
         // build the two configs, then zip with web-ext
-        const zipCommand = `npx wait-on ${outDir}/meta/base ${outDir}/meta/content && npx web-ext build --overwrite-dest --artifacts-dir .cache/build/zip --source-dir=${outDir}`;
+        const zipCommand = `npx wait-on ${outDir}/meta/base ${outDir}/meta/content && npx web-ext build --overwrite-dest --artifacts-dir .cache/build/zip/mv${manifestVersion} --source-dir=${outDir}`;
         const zipRunner = exec(zipCommand);
 
         streamStdOutput(zipRunner, 'zip', 'yellow');
