@@ -19,7 +19,7 @@ export default function makeManifest(outDir: string): PluginOption {
 
             
 
-            if (process.env.manifestVersion === '2') {
+            if (process.env.MANIFEST_VERSION === '2') {
                 const baseResources = manifestV2.web_accessible_resources;
 
                 // add the files to the manifest

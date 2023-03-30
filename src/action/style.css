@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    width: 250px;
+    min-height: 200px;
+    text-align: center;
+}
+
+textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    min-height: 150px;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+button{
+    margin-bottom: 16px;
+}
+
+#output {
+    background: #e4e4e4;
+}
+
+#input {
+    background: #f4f4f4;
+    border: solid 1px #e4e4e4;
+}
+
+#message {
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.success {
+    background-color: #4caf50;
+}
+
+.error {
+    background-color: #f44336;
+}

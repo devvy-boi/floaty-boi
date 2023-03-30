@@ -17,7 +17,7 @@ export default function VideoPageHelper({postId}: VideoPageHelperProps){
         setTimeout(() => {
             browser.runtime.sendMessage({type: 'getLastTime', postId}).then((postInfo) => {
 
-                waitForElement('video.vjs-tech').then((element) =>{
+                waitForElement('video.vjs-tech', document.body).then((element) =>{
                     setLoading(false);
                     const videoElement = element as HTMLVideoElement;
                     

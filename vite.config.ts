@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
             },
             rollupOptions: {
                 input: {
-                    background: process.env.manifestVersion === '2' ? 'src/background/index.html' : 'src/background/service-worker.ts',
+                    background: process.env.MANIFEST_VERSION === '2' ? 'src/background/index.html' : 'src/background/service-worker.ts',
                     action: 'src/action/index.html',
                 },
                 output: {

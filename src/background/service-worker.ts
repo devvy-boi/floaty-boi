@@ -118,6 +118,26 @@ browser.runtime.onMessage.addListener((message) => {
             });
     }
 
+    if (message.type ==='exportStorage') {
+        return browser.storage.local.get()
+            .then((data)=>{
+                return Promise.resolve(data);
+            })
+            .catch((error)=>{
+                return Promise.reject(error);
+            });
+    }
+
+    if (message.type ==='importStorage') {
+        return browser.storage.local.set(message.value)
+            .then(()=>{
+                return Promise.resolve();
+            })
+            .catch((error)=>{
+                return Promise.reject(error);
+            });
+    }
+
 
     
 });

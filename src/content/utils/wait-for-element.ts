@@ -1,9 +1,12 @@
-export default function waitForElement(selector: string, multiple = false) : Promise<Element> {
+export default function waitForElement(selector: string, parent: Element, multiple = false) : Promise<Element> {
+
+    const searchParent = parent || document.body;
+    
     const doSelector = () => {
         if (multiple) {
-            return document.querySelectorAll(selector);
+            return searchParent.querySelectorAll(selector);
         }
-        return document.querySelector(selector);
+        return searchParent.querySelector(selector);
     };
 
     return new Promise(resolve => {
@@ -20,7 +23,7 @@ export default function waitForElement(selector: string, multiple = false) : Pro
             }
         });
 
-        observer.observe(document.body, {
+        observer.observe(searchParent, {
             childList: true,
             subtree: true
         });

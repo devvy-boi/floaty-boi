@@ -53,7 +53,7 @@ export default function ContextMenu(){
             {
                 isOnVideoPage && (
                     <button onClick={saveForLater}>
-                        Add to Watch Later
+                        Add to Watch List
                     </button>
                 )
             }
@@ -61,8 +61,8 @@ export default function ContextMenu(){
 
             {
                 watchLater.length === 0 ? 
-                    <h3>Watchlist is empty</h3> :
-                    <h3>Watchlist</h3>
+                    <p>Watch List is empty</p> :
+                    <h3>Watch List</h3>
 
             }
             <div className={styles.watchLaterContainer}>
