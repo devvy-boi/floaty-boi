@@ -1,0 +1,136 @@
+@import '../shared/theme.less';
+
+body, html{
+    margin: 0;
+}
+
+.root:extend(.floaty-theme-light) {
+    font-family: sans-serif;
+    width: 350px;
+    min-height: 200px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--textColor);
+    background: var(--bgColor);
+    padding: 16px;
+
+    &.dark:extend(.floaty-theme-dark) {
+        background: var(--bgColor);
+        color: var(--textColor);
+    }
+}
+
+textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    min-height: 100px;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin: 8px 0px;
+    background: var(--bgColorLighter);
+    font-size: 12px;
+}
+
+button {
+    background: var(--primaryColor);
+    color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    text-align: left;
+}
+
+#output {
+    color: var(--textColorLighter);
+}
+
+#input {
+    color: var(--textColor);
+}
+
+.icon{
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+
+    .title{
+        flex-basis: 100%;
+    }
+
+    .version{
+        opacity: 0.5;
+    }
+}
+
+.message {
+    background: var(--bgColorTransparent);
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: calc(100% - 16px);
+    margin: 8px;
+    animation: enter 0.3s ease both;
+
+    .text {
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+
+    .progress {
+        margin-top: 8px;
+        background: var(--primaryColor);
+        height: 4px;
+        width: 0;
+        border-radius: 4px;
+        animation: progress 3s linear both;
+    }
+}
+
+@keyframes enter {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes progress {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}

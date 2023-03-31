@@ -1,0 +1,39 @@
+.toggleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.toggleButton {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: var(--bgColorLighter);
+    height: 24px;
+    width: 48px;
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    .toggleCircle {
+        position: absolute;
+        background: var(--primaryColor);
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        margin: 4px;
+        transition: all 0.3s ease;
+        left: 0;
+    }
+
+    &.on {
+        background: var(--primaryColor);
+
+        .toggleCircle {
+            left: 24px;
+            background: var(--bgColorLighter);
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { AppStateContext } from './providers/use-app-state';
 
@@ -6,7 +6,8 @@ import styles from './context-menu.module.less';
 import getPoster from './utils/get-poster';
 import getCurrentPostId from './utils/get-current-post-id';
 
-import { runtime } from 'webextension-polyfill';
+import ToggleButton from '../shared/toggle-button';
+
 
 export default function ContextMenu(){
     const { 
@@ -45,15 +46,13 @@ export default function ContextMenu(){
 
     return (
         <div className={`${styles.container} ${darkMode ? styles.dark: ''}`}>
-            <h2>Floaty Boi Settings</h2>
-            <button onClick={()=>setDarkMode(!darkMode)}>
-                Turn {darkMode ? 'Off' : 'On'} Dark Mode
-            </button>
+            <h2>Floaty Boi</h2>
+            <ToggleButton text='Dark Mode' onToggle={(value)=>setDarkMode(value)} externalState={darkMode}/>
             
             {
                 isOnVideoPage && (
                     <button onClick={saveForLater}>
-                        Add to Watch Later
+                        Add to Watch List
                     </button>
                 )
             }
@@ -61,8 +60,8 @@ export default function ContextMenu(){
 
             {
                 watchLater.length === 0 ? 
-                    <h3>Watchlist is empty</h3> :
-                    <h3>Watchlist</h3>
+                    <p>Watch List is empty</p> :
+                    <h3>Watch List</h3>
 
             }
             <div className={styles.watchLaterContainer}>

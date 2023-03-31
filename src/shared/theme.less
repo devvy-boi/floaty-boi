@@ -1,0 +1,50 @@
+// --textColor: #ffffff;
+// --textColorLight: #b3b3b3;
+// --textColorLighter: #919191;
+// --bgColor: #121a23;
+// --bgColorLight: #1e2a37;
+// --bgColorLighter: #2a3b4d;
+// --bgColorTransparent: rgba(18, 26, 35, 0.8);
+// --primaryColor: #0085ff;
+
+
+@textColor: #121a23;
+@textColorLight: #1e2a37;
+@textColorLighter: #3a4450;
+@bgColor: #ffffff;
+@bgColorLight: #f2f2f2;
+@bgColorLighter: #e6e6e6;
+@bgColorTransparent: rgba(255, 255, 255, 0.6);
+@primaryColor: #0085ff;
+
+@dark-textColor: #ffffff;
+@dark-textColorLight: #b3b3b3;
+@dark-textColorLighter: #919191;
+@dark-bgColor: #121a23;
+@dark-bgColorLight: #1e2a37;
+@dark-bgColorLighter: #2a3b4d;
+@dark-bgColorTransparent: rgba(18, 26, 35, 0.7);
+@dark-primaryColor: #0085ff;
+
+
+.floaty-theme-dark{
+    --textColor: @dark-textColor;
+    --textColorLight: @dark-textColorLight;
+    --textColorLighter: @dark-textColorLighter;
+    --bgColor: @dark-bgColor;
+    --bgColorLight: @dark-bgColorLight;
+    --bgColorLighter: @dark-bgColorLighter;
+    --bgColorTransparent: @dark-bgColorTransparent;
+    --primaryColor: @dark-primaryColor;
+}
+
+.floaty-theme-light{
+    --textColor: @textColor;
+    --textColorLight: @textColorLight;
+    --textColorLighter: @textColorLighter;
+    --bgColor: @bgColor;
+    --bgColorLight: @bgColorLight;
+    --bgColorLighter: @bgColorLighter;
+    --bgColorTransparent: @bgColorTransparent;
+    --primaryColor: @primaryColor;
+}
