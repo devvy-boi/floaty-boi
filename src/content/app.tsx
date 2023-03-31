@@ -1,7 +1,7 @@
 
 import { useContext, useEffect, useState } from 'react';
 import browser from 'webextension-polyfill';
-import Draggable, { DraggableData } from 'react-draggable';
+import Draggable, { DraggableData, DraggableEventHandler } from 'react-draggable';
 
 import { AppStateContext } from './providers/use-app-state';
 
@@ -77,7 +77,7 @@ export default function App(){
         }
     };
 
-    const dragHandler = (_, data: DraggableData) => {
+    const dragHandler : DraggableEventHandler = (_, data) => {
 
         if (Math.abs(data.deltaX) < 4 && Math.abs(data.deltaY) < 4) {
             clearTimeout(dragTimeoutId);

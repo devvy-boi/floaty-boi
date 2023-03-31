@@ -4,7 +4,7 @@ import {runtime } from 'webextension-polyfill';
 
 import './style.less';
 
-import ToggleButton from './toggle-button';
+import ToggleButton from '../shared/toggle-button';
 
 let messageTimeout: NodeJS.Timeout;
 
@@ -57,7 +57,7 @@ export default function App(){
             });
             showMessage('Data imported successfully');
         } catch (error) {
-            showMessage('Error importing data', error);
+            showMessage('Error importing data');
         }
 
     };
@@ -68,6 +68,12 @@ export default function App(){
                 type: 'setDisabled',
                 value: state
             });
+
+            const data = await runtime.sendMessage({
+                type: 'exportStorage'
+            });
+            
+            setExportedData(data);
 
             setDisabled(state);
             showMessage(state ? 'Disabled injection' : 'Enabled injection');
@@ -84,7 +90,7 @@ export default function App(){
         
         messageTimeout = setTimeout(() => {
             setMessage('');
-        }, 5000);
+        }, 3000);
     };
 
     const handleOutputClick = () => {

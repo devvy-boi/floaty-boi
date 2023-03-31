@@ -10,15 +10,13 @@ interface VideoPageHelperProps {
 }
 
 export default function VideoPageHelper({postId}: VideoPageHelperProps){
-    const [loading, setLoading] = useState(true);
-    const {addToWatchLater, enableResume} = useContext(AppStateContext);
+    const {enableResume} = useContext(AppStateContext);
 
     useEffect(() => {
         setTimeout(() => {
             browser.runtime.sendMessage({type: 'getLastTime', postId}).then((postInfo) => {
 
                 waitForElement('video.vjs-tech', document.body).then((element) =>{
-                    setLoading(false);
                     const videoElement = element as HTMLVideoElement;
                     
                     if (postInfo?.lastTime && enableResume) {

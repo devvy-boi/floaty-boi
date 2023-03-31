@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { AppStateContext } from './providers/use-app-state';
 
@@ -6,7 +6,8 @@ import styles from './context-menu.module.less';
 import getPoster from './utils/get-poster';
 import getCurrentPostId from './utils/get-current-post-id';
 
-import { runtime } from 'webextension-polyfill';
+import ToggleButton from '../shared/toggle-button';
+
 
 export default function ContextMenu(){
     const { 
@@ -46,9 +47,7 @@ export default function ContextMenu(){
     return (
         <div className={`${styles.container} ${darkMode ? styles.dark: ''}`}>
             <h2>Floaty Boi Settings</h2>
-            <button onClick={()=>setDarkMode(!darkMode)}>
-                Turn {darkMode ? 'Off' : 'On'} Dark Mode
-            </button>
+            <ToggleButton text='Dark Mode' onToggle={(value)=>setDarkMode(value)} externalState={darkMode}/>
             
             {
                 isOnVideoPage && (

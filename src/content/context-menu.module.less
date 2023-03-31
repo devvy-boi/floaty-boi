@@ -1,5 +1,15 @@
+@import "../shared/theme.less";
+
 .container {
-    --textColor: #2d4156;
+    --textColor: @textColor;
+    --textColorLight: @textColorLight;
+    --textColorLighter: @textColorLighter;
+    --bgColor: @bgColor;
+    --bgColorLight: @bgColorLight;
+    --bgColorLighter: @bgColorLighter;
+    --bgColorTransparent: @bgColorTransparent;
+    --primaryColor: @primaryColor;
+
     background: rgba(255, 255, 255, 0.8);
     color: var(--textColor);
     backdrop-filter: blur(8px);
@@ -16,16 +26,27 @@
     min-height: 150px;
     box-sizing: border-box;
     margin-right: 10px;
-    
+
+
+
 
     &.dark {
+        --textColor: @dark-textColor;
+        --textColorLight: @dark-textColorLight;
+        --textColorLighter: @dark-textColorLighter;
+        --bgColor: @dark-bgColor;
+        --bgColorLight: @dark-bgColorLight;
+        --bgColorLighter: @dark-bgColorLighter;
+        --bgColorTransparent: @dark-bgColorTransparent;
+        --primaryColor: @dark-primaryColor;
+
         backdrop-filter: blur(8px) brightness(0.9);
-        background: rgba(30, 42, 54, 0.8);
-        --textColor: #ffffff;
+        background: @dark-bgColorTransparent;
     }
 }
 
-h2, h3 {
+h2,
+h3 {
     margin: 0px;
     margin-bottom: 8px;
 }
@@ -34,7 +55,7 @@ button {
     background: none;
     color: var(--textColor);
     font-weight: bold;
-    border: solid 2px #0489fa;
+    border: solid 2px var(--primaryColor);
     border-radius: 8px;
     outline: none;
     padding: 10px;
@@ -43,7 +64,7 @@ button {
 
 }
 
-.watchLaterContainer{
+.watchLaterContainer {
     max-height: 266px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -80,7 +101,7 @@ button {
         flex-basis: 100%;
     }
 
-    .remove{
+    .remove {
         font-size: 18px;
         width: 24px;
         height: 24px;
@@ -96,12 +117,13 @@ button {
         border-radius: 50%;
         cursor: pointer;
         transition: transform 0.2s ease;
-        &:hover{
+
+        &:hover {
             transform: scale(1.1);
         }
     }
 
-    .posterSquare{
+    .posterSquare {
         width: 50px;
         height: 50px;
         border-radius: 8px;
@@ -126,6 +148,7 @@ button {
 
     &:hover {
         text-decoration: none !important;
+
         .posterBg {
             filter: brightness(0.7) blur(5px);
             transform: scale(1.2);

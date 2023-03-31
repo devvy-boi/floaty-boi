@@ -1,23 +1,25 @@
 body {
     font-family: sans-serif;
-    width: 250px;
+    width: 350px;
     min-height: 200px;
     text-align: center;
     font-size: 14px;
     color: #ffffff;
     background: #1e2a37;
+    padding: 8px;
 }
 
 textarea {
     border: none;
     outline: none;
     width: 100%;
-    min-height: 150px;
+    min-height: 100px;
     border-radius: 4px;
     padding: 8px;
     box-sizing: border-box;
     resize: vertical;
     margin: 8px 0px;
+    background: #2a3b4d;
 }
 
 button {
@@ -37,12 +39,11 @@ label {
 }
 
 #output {
-    background: #e4e4e4;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #input {
-    background: #f4f4f4;
-    border: solid 1px #e4e4e4;
+    color: #ffffff;
 }
 
 .message {
@@ -72,7 +73,7 @@ label {
         height: 4px;
         width: 0;
         border-radius: 4px;
-        animation: progress 5s linear both;
+        animation: progress 3s linear both;
     }
 }
 
@@ -96,36 +97,5 @@ label {
 
     100% {
         width: 0%;
-    }
-}
-
-
-.toggleWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 16px 0;
-}
-
-.toggleButton {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    background: #dedede;
-    height: 24px;
-    width: 48px;
-    border-radius: 40px;
-    cursor: pointer;
-
-    .toggleCircle {
-        background: #0489fa;
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        margin: 4px;
-    }
-
-    &.on {
-        justify-content: end;
     }
 }

@@ -1,3 +1,6 @@
+@import "../shared/theme.less";
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -6,7 +9,7 @@
 }
 
 .progress {
-    background: #0489fa;
+    background: @dark-primaryColor;
     bottom: 0;
     left: 0;
     position: absolute;
@@ -46,14 +49,24 @@
 
 :global {
     .floaty-dark {
-        --textColor: #fff;
-        --textColorLight: #b3b3b3;
-        --textColorLighter: #919191;
-        --bgColor: #121a23;
-        --bgColorLight: #1e2a37;
-        --bgColorLighter: #2a3b4d;
-        --bgColorTransparent: rgba(18, 26, 35, 0.8);
-        --primaryColor: #0085ff;
+        // --textColor: #fff;
+        // --textColorLight: #b3b3b3;
+        // --textColorLighter: #919191;
+        // --bgColor: #121a23;
+        // --bgColorLight: #1e2a37;
+        // --bgColorLighter: #2a3b4d;
+        // --bgColorTransparent: rgba(30, 42, 54, 0.8);
+        // --primaryColor: #0085ff;
+
+        --textColor: @dark-textColor;
+        --textColorLight: @dark-textColorLight;
+        --textColorLighter: @dark-textColorLighter;
+        --bgColor: @dark-bgColor;
+        --bgColorLight: @dark-bgColorLight;
+        --bgColorLighter: @dark-bgColorLighter;
+        --bgColorTransparent: @dark-bgColorTransparent;
+        --primaryColor: @dark-primaryColor;
+        
 
         .route-wrapper {
             background: var(--bgColor) !important;

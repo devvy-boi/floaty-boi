@@ -23,7 +23,7 @@ const parseVideoLink = async (videoLink: HTMLAnchorElement) => {
             }
             
 
-            const thumbnail = await waitForElement('img', thumbnailContainer, false);
+            const thumbnail = await waitForElement('img', thumbnailContainer, false) as HTMLElement;
             
 
             Object.assign(thumbnail.style, {

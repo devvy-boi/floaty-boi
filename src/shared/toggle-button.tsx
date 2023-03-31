@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import styles from './toggle-button.module.less';
+
 interface ToggleButtonProps {
     externalState: boolean;
     text: string;
@@ -21,11 +23,11 @@ export default function ToggleButton({externalState, text, onToggle}: ToggleButt
     };
 
     return (
-        <div className='toggleWrapper'>
-            <div className='toggleText'>{text}</div>
+        <div className={styles.toggleWrapper}>
+            <div className={styles.toggleText}>{text}</div>
 
-            <div onClick={toggle} className={`toggleButton ${state ? 'on':'off'}`}>
-                <div className='toggleCircle'/>
+            <div onClick={toggle} className={`${styles.toggleButton} ${state ? styles.on : styles.off}`}>
+                <div className={styles.toggleCircle}/>
             </div>
         </div>
 
