@@ -91,8 +91,6 @@ browser.runtime.onMessage.addListener((message) => {
         // get the watch later list from the extension local storage
         return browser.storage.local.get('watchLater')
             .then(({watchLater})=>{
-                console.log(watchLater);
-                
                 return Promise.resolve(watchLater || []);
             })
             .catch(error=>{
@@ -134,6 +132,34 @@ browser.runtime.onMessage.addListener((message) => {
                 return Promise.resolve();
             })
             .catch((error)=>{
+                return Promise.reject(error);
+            });
+    }
+
+    if (message.type ==='clearStorage') {
+        return browser.storage.local.clear()
+            .then(()=>{
+                return Promise.resolve();
+            })
+            .catch((error)=>{
+                return Promise.reject(error);
+            });
+    }
+
+    if (message.type ==='setDisabled') {
+        return browser.storage.local.set({
+            disabled: message.value
+        });
+    }
+
+    if (message.type ==='getDisabled') {
+        
+        return browser.storage.local.get('disabled')
+            .then(({disabled})=>{
+                return Promise.resolve(disabled);
+            })
+            .catch(error=>{
+                
                 return Promise.reject(error);
             });
     }

@@ -6,21 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extension</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.less">
 </head>
 
 <body>
-    <h2>Floaty Boi Data</h2>
-    
-    <textarea readonly placeholder="data will appear here" id="output"></textarea>
-    <button id="exportButton">Copy / Export Data</button>
+    <div id="app"></div>
 
-    <textarea placeholder="paste data here" id="input"></textarea>
-    <button id="importButton">Import Data</button>
 
-    <div id="message"></div>
-
-    <script src="./script" type="module"></script>
+    <script src="./action-script.tsx" type="module"></script>
 </body>
 
 </html>

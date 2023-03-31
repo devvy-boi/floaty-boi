@@ -1,0 +1,131 @@
+body {
+    font-family: sans-serif;
+    width: 250px;
+    min-height: 200px;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    background: #1e2a37;
+}
+
+textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    min-height: 150px;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin: 8px 0px;
+}
+
+button {
+    background: #0489fa;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    text-align: left;
+}
+
+#output {
+    background: #e4e4e4;
+}
+
+#input {
+    background: #f4f4f4;
+    border: solid 1px #e4e4e4;
+}
+
+.message {
+    background: rgba(42, 59, 77, 0.6);
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: calc(100% - 16px);
+    margin: 8px;
+    animation: enter 0.3s ease both;
+
+    .text {
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+
+    .progress {
+        margin-top: 8px;
+        background: #bcd4e4;
+        height: 4px;
+        width: 0;
+        border-radius: 4px;
+        animation: progress 5s linear both;
+    }
+}
+
+@keyframes enter {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes progress {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}
+
+
+.toggleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.toggleButton {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: #dedede;
+    height: 24px;
+    width: 48px;
+    border-radius: 40px;
+    cursor: pointer;
+
+    .toggleCircle {
+        background: #0489fa;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        margin: 4px;
+    }
+
+    &.on {
+        justify-content: end;
+    }
+}

@@ -70,10 +70,15 @@ export default function ChannelPageHelper(){
                     });
                 });
 
-                // start watching for new videos
-                observer.observe(document.querySelector('.ReactVideoFeed'), {
-                    childList: true,
+                const videoFeedContainer = document.querySelector('.ReactVideoFeed');
 
+                if (!videoFeedContainer) {
+                    return;
+                }
+
+                // start watching for new videos
+                observer.observe(videoFeedContainer, {
+                    childList: true,
                 });
             });
         }, 1000);
