@@ -1,14 +1,6 @@
 @import "../shared/theme.less";
 
-.container {
-    --textColor: @textColor;
-    --textColorLight: @textColorLight;
-    --textColorLighter: @textColorLighter;
-    --bgColor: @bgColor;
-    --bgColorLight: @bgColorLight;
-    --bgColorLighter: @bgColorLighter;
-    --bgColorTransparent: @bgColorTransparent;
-    --primaryColor: @primaryColor;
+.container:extend(.floaty-theme-light) {
 
     background: rgba(255, 255, 255, 0.8);
     color: var(--textColor);
@@ -30,15 +22,7 @@
 
 
 
-    &.dark {
-        --textColor: @dark-textColor;
-        --textColorLight: @dark-textColorLight;
-        --textColorLighter: @dark-textColorLighter;
-        --bgColor: @dark-bgColor;
-        --bgColorLight: @dark-bgColorLight;
-        --bgColorLighter: @dark-bgColorLighter;
-        --bgColorTransparent: @dark-bgColorTransparent;
-        --primaryColor: @dark-primaryColor;
+    &.dark:extend(.floaty-theme-dark) {
 
         backdrop-filter: blur(8px) brightness(0.9);
         background: @dark-bgColorTransparent;

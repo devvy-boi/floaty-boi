@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-import {runtime } from 'webextension-polyfill';
+import { runtime, tabs } from 'webextension-polyfill';
 
 import './style.less';
 
@@ -14,6 +14,7 @@ export default function App(){
     const [version, setVersion] = useState<string>('');
     const [exportedData, setExportedData] = useState({});
     const [disabled, setDisabled] = useState<boolean>(false);
+    const [darkMode, setDarkMode] = useState<boolean>(false);
 
     const [message, setMessage] = useState<string>('');
 
@@ -26,8 +27,6 @@ export default function App(){
             type: 'exportStorage'
         }).then((data) => {
             setExportedData(data);
-
-            setDisabled(!!data.disabled);
         });
 
 
@@ -38,12 +37,21 @@ export default function App(){
         if (outputRef.current) {
             outputRef.current.value = JSON.stringify(exportedData);
         }
+
+        setDisabled(!!exportedData.disabled);
+        setDarkMode(!!exportedData.darkMode);
     }, [exportedData]);
 
 
     // import data
     const importData = async () => {
         try {
+            const confirm = window.confirm('IMPORTANT\nAre you sure you want to import data? This will overwrite your current data and is irreversible.');
+
+            if (!confirm) {
+                return;
+            }
+            
             if (!inputRef.current) {
                 throw new Error('Could not find input ref');
             }
@@ -55,6 +63,8 @@ export default function App(){
                 type: 'importStorage',
                 value: data
             });
+
+            setExportedData(data);
             showMessage('Data imported successfully');
         } catch (error) {
             showMessage('Error importing data');
@@ -62,7 +72,7 @@ export default function App(){
 
     };
 
-    const handleToggle = async (state: boolean) => {
+    const handleKillSwitchToggle = async (state: boolean) => {
         try {
             await runtime.sendMessage({
                 type: 'setDisabled',
@@ -72,6 +82,8 @@ export default function App(){
             const data = await runtime.sendMessage({
                 type: 'exportStorage'
             });
+
+            tabs.reload();
             
             setExportedData(data);
 
@@ -81,6 +93,28 @@ export default function App(){
             showMessage('Error toggling injection');
         }
 
+    };
+
+    const handleDarkModeToggle = async (state: boolean) => {
+        try {
+            await runtime.sendMessage({
+                type: 'setDarkMode',
+                value: state
+            });
+
+            const data = await runtime.sendMessage({
+                type: 'exportStorage'
+            });
+
+            tabs.reload();
+            
+            setExportedData(data);
+
+            setDarkMode(state);
+            showMessage(state ? 'Enabled Dark Mode' : 'Disabled Dark Mode');
+        } catch (error) {
+            showMessage('Error toggling dark mode');
+        }
     };
 
     const showMessage = (message: string) => {
@@ -106,7 +140,7 @@ export default function App(){
 
 
     return (
-        <div>
+        <div className={`root ${exportedData.darkMode ? 'dark':''}`}>
             {
                 message && (
                     <div className='message'>
@@ -118,10 +152,14 @@ export default function App(){
                 )
             }
 
-            <h2>Floaty Boi Tools</h2>
-            <p>Version: {version}</p>
+            <div className='header'>
+                <img className='icon' src={runtime.getURL(`/assets/icon-${darkMode ? 'darkmode' : 'lightmode'}.svg`)} alt="" />
+                <h2 className='title'>Settings & Data</h2>
+                <span className='version'>v{version}</span>
+            </div>
 
-            <ToggleButton onToggle={handleToggle} text='Disable Injection' externalState={disabled} />
+            <ToggleButton onToggle={handleKillSwitchToggle} text='Kill switch' externalState={disabled} />
+            <ToggleButton onToggle={handleDarkModeToggle} text='Dark mode' externalState={darkMode} />
 
             <label htmlFor="output">Your Data:</label>
             <textarea onClick={handleOutputClick} ref={outputRef} readOnly placeholder="data will appear here" id="output"/>

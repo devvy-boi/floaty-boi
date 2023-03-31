@@ -46,7 +46,7 @@ export default function ContextMenu(){
 
     return (
         <div className={`${styles.container} ${darkMode ? styles.dark: ''}`}>
-            <h2>Floaty Boi Settings</h2>
+            <h2>Floaty Boi</h2>
             <ToggleButton text='Dark Mode' onToggle={(value)=>setDarkMode(value)} externalState={darkMode}/>
             
             {
