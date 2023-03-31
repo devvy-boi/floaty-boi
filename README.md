@@ -9,13 +9,18 @@ Makes your experience on Floatplane better by adding saved video progress, dark 
 ## IMPORTANT
 Not affiliated with Linus Media Group or Floatplane Inc. in any way. **Do NOT contact Floatplane support for issues without trying to disable the extension first.**
 
-![image](https://user-images.githubusercontent.com/129204914/228608718-481c0310-a9d7-4dae-9ba9-320b8e93bc82.png)
+
+![Screenshot 2023-03-31 111035](https://user-images.githubusercontent.com/129204914/229196249-a3ed9cb0-d674-4f0d-82ec-8c2dbbc68de9.png)
 
 
 ## Installation
-See our [Releases](https://github.com/devvy-boi/floaty-boi/releases/tag/v0.0.2-alpha) page if you'd like to try out the extension while it's in alpha.
+### Firefox
+Get it on [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/floaty-boi)!
 
-Coming soon to Chrome Web Store and Mozilla Addons...
+### Chrome, Edge, Chromium-based
+Coming soon to Chrome Web Store...
+
+See our [Releases](https://github.com/devvy-boi/floaty-boi/releases/tag/v0.0.2-alpha) page if you'd like to try out the extension while it's in alpha.
 
 
 ## Development
