@@ -18,9 +18,10 @@ Not affiliated with Linus Media Group or Floatplane Inc. in any way. **Do NOT co
 Get it on [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/floaty-boi)!
 
 ### Chrome, Edge, Chromium-based
-Coming soon to Chrome Web Store...
+Get it on the [Chrome Web Store](https://chrome.google.com/webstore/detail/floaty-boi/fjcnijlonalklaiamjooajkkfnijcnjk)!
 
-See our [Releases](https://github.com/devvy-boi/floaty-boi/releases/tag/v0.0.2-alpha) page if you'd like to try out the extension while it's in alpha.
+
+Manifest v2 and v3 build are also available on the releases page of this repo.
 
 
 ## Development
