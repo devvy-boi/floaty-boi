@@ -17,7 +17,7 @@ Not affiliated with Linus Media Group or Floatplane Inc. in any way. **Do NOT co
 ### Firefox
 Get it on [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/floaty-boi)!
 
-### Chrome, Edge, Chromium-based
+### Chrome, Edge, Opera GX
 Get it on the [Chrome Web Store](https://chrome.google.com/webstore/detail/floaty-boi/fjcnijlonalklaiamjooajkkfnijcnjk)!
 
 
