@@ -38,6 +38,7 @@ Manifest v2 and v3 build are also available on the releases page of this repo.
 
 1. Install packages with `yarn` or `npm install`
 2. Run `yarn cli dev` or `npm run cli -- dev` to build the extension and run it with web-ext
+  - You can pass the `-b firefox` flag to run in Firefox, but make sure you set the MANIFEST_VERSION to 2 first!
 
 
 ### To build a zip
