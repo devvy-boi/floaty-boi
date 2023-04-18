@@ -3,7 +3,19 @@ import browser from 'webextension-polyfill';
 
 // get messages from the content script
 
-browser.runtime.onInstalled.addListener(() => {
+browser.runtime.onInstalled.addListener(async () => {
+
+    // check if the welcome page has been shown
+    const { welcomeShown } = await browser.storage.local.get('welcomeShown');
+
+    if (welcomeShown) {
+        return;
+    }
+
+    browser.storage.local.set({
+        welcomeShown: true
+    });
+
     const url = browser.runtime.getURL('/assets/welcome.html');
 
     browser.tabs.create({
